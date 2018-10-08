@@ -3,7 +3,6 @@ package com.mole.molemod;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import org.apache.logging.log4j.Logger;
 
 @Mod(modid = com.mole.molemod.MoleMod.MODID,
         name = com.mole.molemod.MoleMod.NAME,

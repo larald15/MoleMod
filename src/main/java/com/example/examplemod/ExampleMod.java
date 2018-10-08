@@ -25,6 +25,14 @@ public class ExampleMod
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        //Test Code
+        /*
+        This
+        is
+        some
+        test
+        code
+        for
+        git
+         */
     }
 }

@@ -18,8 +18,8 @@ public class MoleMod {
     @Mod.Instance
     public static MoleMod instance;
 
-    @SidedProxy(clientSide = "com.sf.proxymod.proxy.ClientProxy",
-            serverSide = "com.sf.proxymod.proxy.ServerProxy")
+    @SidedProxy(clientSide = "com.mod.molemod.proxy.ClientProxy",
+            serverSide = "com.mod.molemod.proxy.ServerProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

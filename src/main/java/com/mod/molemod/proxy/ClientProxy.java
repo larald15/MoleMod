@@ -1,5 +1,6 @@
 package com.mod.molemod.proxy;
 
-public class ClientProxy {
+
+public class ClientProxy extends CommonProxy{
 
 }

@@ -1,6 +1,7 @@
 package com.mod.molemod.init;
 
 import com.mod.molemod.objects.food.ItemCustomFood;
+import com.mod.molemod.objects.items.ItemCustom;
 import com.mod.molemod.objects.tools.ItemCustomWeapon;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -18,6 +19,10 @@ public class Iteminit {
     //Food
     public static final Item RAW_MOLE = new ItemCustomFood("raw_mole", 3, true);
     public static final Item COOKED_MOLE = new ItemCustomFood("cooked_mole", 16, true);
+
+    //Items
+    public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap");
+    public static final Item LEATHER_REFINED = new ItemCustom("leather_refined");
 
     //Tools
     public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);

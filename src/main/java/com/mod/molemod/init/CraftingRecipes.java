@@ -1,6 +1,5 @@
 package com.mod.molemod.init;
 
-import com.mod.molemod.MoleMod;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;

@@ -32,15 +32,17 @@ public class Iteminit {
     }
 
     public void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(RAW_MOLE);
-        event.getRegistry().register(COOKED_MOLE);
+        event.getRegistry().registerAll(RAW_MOLE, COOKED_MOLE);
         event.getRegistry().register(HAMMER);
+        event.getRegistry().registerAll(LEATHER_SCRAP, LEATHER_REFINED);
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
         registerRender(RAW_MOLE);
         registerRender(COOKED_MOLE);
         registerRender(HAMMER);
+        registerRender(LEATHER_SCRAP);
+        registerRender(LEATHER_REFINED);
     }
 
     private static void registerRender(Item item) {

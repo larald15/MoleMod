@@ -7,16 +7,20 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 
 public class Iteminit {
+
+    //ToolMaterial
+    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 400, 12, 30, 0);
 
     //Food
     public static final Item RAW_MOLE = new ItemCustomFood("raw_mole", 3, true);
     public static final Item COOKED_MOLE = new ItemCustomFood("cooked_mole", 16, true);
 
     //Tools
-    public static final Item HAMMER = new ItemCustomWeapon("hammer", Item.ToolMaterial.DIAMOND);
+    public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
 

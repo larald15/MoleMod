@@ -11,6 +11,6 @@ public class ItemCustomWeapon extends ItemSword {
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
 
-        setMaxDamage(20);
+
     }
 }

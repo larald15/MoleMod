@@ -17,26 +17,28 @@ public class CommonProxy {
 
     private static Iteminit iteminit = new Iteminit();
 
-    public void preInit(FMLPreInitializationEvent event) {}
-    public void init(FMLInitializationEvent event) {}
-    public void postInit(FMLPostInitializationEvent event) {}
+    public void preInit(FMLPreInitializationEvent event) {
+    }
+
+    public void init(FMLInitializationEvent event) {
+    }
+
+    public void postInit(FMLPostInitializationEvent event) {
+    }
 
     @SubscribeEvent
-    public static void registerBlocks(RegistryEvent.Register<Block> event)
-    {
+    public static void registerBlocks(RegistryEvent.Register<Block> event) {
         iteminit.registerBlocks(event);
     }
 
 
     @SubscribeEvent
-    public static void registerItems(RegistryEvent.Register<Item> event)
-    {
+    public static void registerItems(RegistryEvent.Register<Item> event) {
         iteminit.registerItems(event);
     }
 
     @SubscribeEvent
-    public static void registerRenders(ModelRegistryEvent event)
-    {
+    public static void registerRenders(ModelRegistryEvent event) {
         iteminit.registerRenders(event);
     }
 

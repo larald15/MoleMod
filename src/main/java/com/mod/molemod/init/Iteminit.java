@@ -1,6 +1,7 @@
 package com.mod.molemod.init;
 
 import com.mod.molemod.objects.food.ItemCustomFood;
+import com.mod.molemod.objects.tools.ItemCustomWeapon;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -15,7 +16,7 @@ public class Iteminit {
     public static final Item COOKED_MOLE = new ItemCustomFood("cooked_mole", 16, true);
 
     //Tools
-
+    public static final Item HAMMER = new ItemCustomWeapon("hammer", Item.ToolMaterial.DIAMOND);
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
 
@@ -24,11 +25,13 @@ public class Iteminit {
     public void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(RAW_MOLE);
         event.getRegistry().register(COOKED_MOLE);
+        event.getRegistry().register(HAMMER);
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
         registerRender(RAW_MOLE);
         registerRender(COOKED_MOLE);
+        registerRender(HAMMER);
     }
 
     private static void registerRender(Item item) {

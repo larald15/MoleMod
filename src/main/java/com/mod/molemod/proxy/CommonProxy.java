@@ -1,9 +1,8 @@
 package com.mod.molemod.proxy;
 
 import com.mod.molemod.MoleMod;
-import com.mod.molemod.items.Hammer;
+import com.mod.molemod.init.Iteminit;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -16,7 +15,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = MoleMod.MODID)
 public class CommonProxy {
 
-    public static Item HAMMER = new Hammer("Hammer");
+    private static Iteminit iteminit = new Iteminit();
 
     public void preInit(FMLPreInitializationEvent event) {}
     public void init(FMLInitializationEvent event) {}
@@ -25,28 +24,20 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event)
     {
-        //event.getRegistry().registerAll( new Block );
+        iteminit.registerBlocks(event);
     }
 
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
-        //event.getRegistry().registerAll(HAMMER);
+        iteminit.registerItems(event);
     }
 
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event)
     {
-        //registerRender(HAMMER);
-        //registerRender(Item.getItemFromBlock(FLINT_STONE_BLOCK));
+        iteminit.registerRenders(event);
     }
 
-    private static void registerRender(Item item)
-    {
-        /*
-        ModelLoader.setCustomModelResourceLocation(item,0,
-                new ModelResourceLocation(item.getRegistryName(), "inventory"));
-                */
-    }
 }

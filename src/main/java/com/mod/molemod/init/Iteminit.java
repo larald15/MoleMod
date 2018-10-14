@@ -28,13 +28,13 @@ public class Iteminit {
     //Items
     public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap");
     public static final Item LEATHER_REFINED = new ItemCustom("leather_refined");
-    public static final Item BULLET = new ItemCustomBullet("bullet");
+    public static final Item BULLET = new ItemCustomBullet("bullet"); //Todo
 
     //Tools
     public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);
 
     //Guns
-    public static final Item LEEENFIELD = new ItemCustomGun("leeenfield");
+    public static final Item LEEENFIELD = new ItemCustomGun("leeenfield"); //Todo
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
 

@@ -2,6 +2,7 @@ package com.mod.molemod.init;
 
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;
+import com.mod.molemod.objects.tools.ItemCustomGun;
 import com.mod.molemod.objects.tools.ItemCustomWeapon;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -30,6 +31,9 @@ public class Iteminit {
     //Tools
     public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);
 
+    //Guns
+    public static final Item LEEENFIELD = new ItemCustomGun("leeenfield");
+
     public void registerBlocks(RegistryEvent.Register<Block> event) {
 
     }
@@ -38,6 +42,7 @@ public class Iteminit {
         event.getRegistry().registerAll(RAW_MOLE, COOKED_MOLE);
         event.getRegistry().register(HAMMER);
         event.getRegistry().registerAll(LEATHER_SCRAP, LEATHER_REFINED);
+        event.getRegistry().register(LEEENFIELD);
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
@@ -46,6 +51,7 @@ public class Iteminit {
         registerRender(HAMMER);
         registerRender(LEATHER_SCRAP);
         registerRender(LEATHER_REFINED);
+        registerRender(LEEENFIELD);
     }
 
     private static void registerRender(Item item) {

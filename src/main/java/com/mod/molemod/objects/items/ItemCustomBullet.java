@@ -9,7 +9,5 @@ public class ItemCustomBullet extends ItemArrow {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
-
-        setMaxStackSize(128);
     }
 }

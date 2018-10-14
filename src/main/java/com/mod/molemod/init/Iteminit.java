@@ -5,7 +5,9 @@ import com.mod.molemod.objects.items.ItemCustom;
 import com.mod.molemod.objects.tools.ItemCustomWeapon;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -14,7 +16,8 @@ import net.minecraftforge.event.RegistryEvent;
 public class Iteminit {
 
     //ToolMaterial
-    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 400, 12, 30, 0);
+    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 400, 12, 100, 0)
+            .setRepairItem(new ItemStack(Items.IRON_INGOT));
 
     //Food
     public static final Item RAW_MOLE = new ItemCustomFood("raw_mole", 3, true);

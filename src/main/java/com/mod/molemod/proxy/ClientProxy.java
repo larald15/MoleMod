@@ -8,7 +8,7 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod.EventBusSubscriber(Side.CLIENT)
 public class ClientProxy extends CommonProxy{
 
-    private static CraftingRecipes craftingRecipes = new CraftingRecipes();
+    private CraftingRecipes craftingRecipes = new CraftingRecipes();
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

@@ -10,7 +10,5 @@ public class ItemCustomWeapon extends ItemSword {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
-
-
     }
 }

@@ -1,5 +1,6 @@
 package com.mod.molemod.init;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
@@ -12,8 +13,7 @@ public class CraftingRecipes {
     public void initShapedRecipes() {
         GameRegistry.addShapedRecipe(new ResourceLocation("Refined Leather"), null, new ItemStack(LEATHER_REFINED),
                 "   ", "X X", " X ", 'X', LEATHER_SCRAP);
-        //GameRegistry.addShapedRecipe(new ResourceLocation("Bullet"), null, new ItemStack(BULLET, 6),
-                //" X ", " Y ", " Z ", 'X', Items.FLINT, 'Y', Items.IRON_INGOT, 'Z', Items.GUNPOWDER);
+
     }
 
     public void initShapelessRecipes() {

@@ -31,7 +31,7 @@ public class ItemCustomGun extends Item {
         bullet.accelerationZ = aim.z * 0.1;
         worldIn.spawnEntity(bullet);
 
-        //
+        //Todo
 
         item.damageItem(19, playerIn);
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);

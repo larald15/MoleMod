@@ -13,7 +13,10 @@ public class CraftingRecipes {
     public void initShapedRecipes() {
         GameRegistry.addShapedRecipe(new ResourceLocation("Refined Leather"), null, new ItemStack(LEATHER_REFINED),
                 "   ", "X X", " X ", 'X', LEATHER_SCRAP);
-
+        GameRegistry.addShapedRecipe(new ResourceLocation("Bullet"), null, new ItemStack(BULLET, 16),
+                " X ", " Y ", " Z ", 'X', Items.FLINT, 'Y', Items.IRON_INGOT, 'Z', Items.GUNPOWDER);
+        GameRegistry.addShapedRecipe(new ResourceLocation("Hammer"), null, new ItemStack(HAMMER),
+                " XX", " YX", "X  ", 'X', Items.IRON_INGOT, 'Y', Items.STICK);
     }
 
     public void initShapelessRecipes() {

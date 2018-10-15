@@ -2,7 +2,6 @@ package com.mod.molemod.init;
 
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;
-import com.mod.molemod.objects.items.ItemCustomBullet;
 import com.mod.molemod.objects.tools.ItemCustomGun;
 import com.mod.molemod.objects.tools.ItemCustomWeapon;
 import net.minecraft.block.Block;
@@ -28,13 +27,12 @@ public class Iteminit {
     //Items
     public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap");
     public static final Item LEATHER_REFINED = new ItemCustom("leather_refined");
-    public static final Item BULLET = new ItemCustomBullet("bullet"); //Todo
 
     //Tools
     public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);
 
     //Guns
-    public static final Item LEEENFIELD = new ItemCustomGun("leeenfield"); //Todo
+    public static final Item LEEENFIELD = new ItemCustomGun("leeenfield");
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
 
@@ -44,7 +42,6 @@ public class Iteminit {
         event.getRegistry().registerAll(RAW_MOLE, COOKED_MOLE);
         event.getRegistry().register(HAMMER);
         event.getRegistry().registerAll(LEATHER_SCRAP, LEATHER_REFINED);
-        event.getRegistry().register(BULLET);
         event.getRegistry().register(LEEENFIELD);
     }
 
@@ -54,7 +51,6 @@ public class Iteminit {
         registerRender(HAMMER);
         registerRender(LEATHER_SCRAP);
         registerRender(LEATHER_REFINED);
-        registerRender(BULLET);
         registerRender(LEEENFIELD);
     }
 

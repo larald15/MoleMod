@@ -25,7 +25,7 @@ public class ItemCustomGun extends Item {
         Vec3d aim = playerIn.getLookVec();
         EntityLargeFireball bullet = new EntityLargeFireball(worldIn, playerIn, 1, 1, 1);
 
-        bullet.setPosition(playerIn.posX + aim.x * 1.5D, playerIn.posY + aim.y * 1.5D, playerIn.posZ + aim.z * 1.5D);
+        bullet.setPosition(playerIn.posX, playerIn.posY + 1.5, playerIn.posZ);
         bullet.accelerationX = aim.x * 0.1;
         bullet.accelerationY = aim.y * 0.1;
         bullet.accelerationZ = aim.z * 0.1;

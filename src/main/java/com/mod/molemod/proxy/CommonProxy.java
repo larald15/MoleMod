@@ -18,6 +18,7 @@ public class CommonProxy {
     private static Iteminit iteminit = new Iteminit();
 
     public void preInit(FMLPreInitializationEvent event) {
+
     }
 
     public void init(FMLInitializationEvent event) {

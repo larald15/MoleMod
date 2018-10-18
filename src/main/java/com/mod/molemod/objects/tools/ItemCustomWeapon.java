@@ -1,9 +1,9 @@
 package com.mod.molemod.objects.tools;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSword;
 
-public class ItemCustomWeapon extends ItemPickaxe {
+public class ItemCustomWeapon extends ItemSword {
 
     public ItemCustomWeapon(String name, ToolMaterial material) {
         super(material);
@@ -11,6 +11,4 @@ public class ItemCustomWeapon extends ItemPickaxe {
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
     }
-
-    //push
 }

@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(Side.CLIENT)
-public class ClientProxy extends CommonProxy{
+public class ClientProxy extends CommonProxy {
 
     private CraftingRecipes craftingRecipes = new CraftingRecipes();
 

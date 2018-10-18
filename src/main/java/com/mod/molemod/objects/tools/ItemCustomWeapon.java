@@ -11,5 +11,5 @@ public class ItemCustomWeapon extends ItemPickaxe {
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
     }
-    //grüßgott!
+
 }

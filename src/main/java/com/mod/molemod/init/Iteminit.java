@@ -18,8 +18,8 @@ import net.minecraftforge.event.RegistryEvent;
 public class Iteminit {
 
     //ToolMaterial
-    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 350, 12, 20, 0)
-            .setRepairItem(new ItemStack(Items.IRON_INGOT));
+    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 350,
+            12, 17, 0).setRepairItem(new ItemStack(Items.IRON_INGOT));
 
     //Food
     public static final Item RAW_MOLE = new ItemCustomFood("raw_mole", 3, true);

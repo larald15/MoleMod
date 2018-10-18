@@ -6,6 +6,7 @@ import com.mod.molemod.objects.tools.ItemCustomGun;
 import com.mod.molemod.objects.tools.ItemCustomWeapon;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,9 +26,9 @@ public class Iteminit {
     public static final Item COOKED_MOLE = new ItemCustomFood("cooked_mole", 16, true);
 
     //Items
-    public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap");
-    public static final Item LEATHER_REFINED = new ItemCustom("leather_refined");
-    public static final Item BULLET = new ItemCustom("bullet");
+    public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap", CreativeTabs.MISC);
+    public static final Item LEATHER_REFINED = new ItemCustom("leather_refined", CreativeTabs.MISC);
+    public static final Item BULLET = new ItemCustom("bullet", CreativeTabs.COMBAT);
 
     //Tools
     public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);

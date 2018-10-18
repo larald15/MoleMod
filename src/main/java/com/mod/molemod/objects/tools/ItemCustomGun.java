@@ -2,21 +2,14 @@ package com.mod.molemod.objects.tools;
 
 import com.mod.molemod.objects.entities.EntityCustomArrow;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
-import net.minecraft.entity.projectile.EntityLargeFireball;
-import net.minecraft.entity.projectile.EntitySpectralArrow;
-import net.minecraft.entity.projectile.EntityTippedArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 
 import static com.mod.molemod.init.Iteminit.BULLET;

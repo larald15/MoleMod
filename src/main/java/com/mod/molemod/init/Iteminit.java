@@ -18,8 +18,8 @@ import net.minecraftforge.event.RegistryEvent;
 public class Iteminit {
 
     //ToolMaterial
-    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 350,
-            12, 17, 0).setRepairItem(new ItemStack(Items.IRON_INGOT));
+    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 0, 350,
+            0, 17, 0).setRepairItem(new ItemStack(Items.IRON_INGOT));
 
     //Food
     public static final Item RAW_MOLE = new ItemCustomFood("raw_mole", 3, true);
@@ -31,7 +31,7 @@ public class Iteminit {
     public static final Item BULLET = new ItemCustom("bullet", CreativeTabs.COMBAT);
 
     //Tools
-    public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);
+    public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial, 0f, 0f);
 
     //Guns
     public static final Item LEEENFIELD = new ItemCustomGun("leeenfield");

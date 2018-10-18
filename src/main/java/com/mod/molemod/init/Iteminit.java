@@ -17,7 +17,7 @@ import net.minecraftforge.event.RegistryEvent;
 public class Iteminit {
 
     //ToolMaterial
-    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 400, 12, 100, 0)
+    public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 3, 350, 12, 20, 0)
             .setRepairItem(new ItemStack(Items.IRON_INGOT));
 
     //Food
@@ -27,6 +27,7 @@ public class Iteminit {
     //Items
     public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap");
     public static final Item LEATHER_REFINED = new ItemCustom("leather_refined");
+    public static final Item BULLET = new ItemCustom("bullet");
 
     //Tools
     public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial);
@@ -39,10 +40,13 @@ public class Iteminit {
     }
 
     public void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(RAW_MOLE, COOKED_MOLE);
+        event.getRegistry().register(RAW_MOLE);
+        event.getRegistry().register(COOKED_MOLE);
         event.getRegistry().register(HAMMER);
-        event.getRegistry().registerAll(LEATHER_SCRAP, LEATHER_REFINED);
+        event.getRegistry().register(LEATHER_SCRAP);
+        event.getRegistry().register(LEATHER_REFINED);
         event.getRegistry().register(LEEENFIELD);
+        event.getRegistry().register(BULLET);
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
@@ -52,6 +56,7 @@ public class Iteminit {
         registerRender(LEATHER_SCRAP);
         registerRender(LEATHER_REFINED);
         registerRender(LEEENFIELD);
+        registerRender(BULLET);
     }
 
     private static void registerRender(Item item) {

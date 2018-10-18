@@ -16,15 +16,13 @@ public class EntityCustomArrow extends EntitySpectralArrow {
         super(world, shoot);
     }
 
-    protected void arrowHit(EntityLivingBase living)
-    {
+    protected void arrowHit(EntityLivingBase living) {
         super.arrowHit(living);
         PotionEffect potioneffect = new PotionEffect(MobEffects.GLOWING, this.duration, 0);
         living.addPotionEffect(potioneffect);
     }
 
-    protected ItemStack getArrowStack()
-    {
+    protected ItemStack getArrowStack() {
         return ItemStack.EMPTY;
     }
 

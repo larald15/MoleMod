@@ -5,10 +5,10 @@ import net.minecraft.item.Item;
 
 public class ItemCustom extends Item {
 
-    public ItemCustom (String name) {
+    public ItemCustom (String name, CreativeTabs tab) {
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(tab);
     }
 
 }

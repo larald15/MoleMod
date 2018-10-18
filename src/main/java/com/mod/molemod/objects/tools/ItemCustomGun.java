@@ -30,13 +30,12 @@ public class ItemCustomGun extends Item {
 
         Minecraft mc = Minecraft.getMinecraft();
 
-        arrow.setDamage(100);
+        arrow.setDamage(20);
         arrow.setPosition(playerIn.posX, playerIn.posY + 1.5, playerIn.posZ);
         arrow.shoot(aim.x, aim.y, aim.z, 10, 0);
 
         if (playerIn.isCreative()) {
             worldIn.spawnEntity(arrow);
-            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, null, SoundCategory.PLAYERS, 1, 0);
         } else if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
             worldIn.spawnEntity(arrow);
 

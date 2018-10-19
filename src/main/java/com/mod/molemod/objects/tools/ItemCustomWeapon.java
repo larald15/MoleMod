@@ -44,4 +44,6 @@ public class ItemCustomWeapon extends ItemAxe {
         return false;
     }
 
+    //worked
+
 }

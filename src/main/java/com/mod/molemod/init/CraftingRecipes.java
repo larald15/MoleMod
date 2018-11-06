@@ -28,5 +28,6 @@ public class CraftingRecipes {
     public void initSmeltingRecipes() {
         GameRegistry.addSmelting(RAW_MOLE, new ItemStack(COOKED_MOLE), 500);
         GameRegistry.addSmelting(BULLET, new ItemStack(Items.IRON_NUGGET, 3), 500);
+        GameRegistry.addSmelting(Items.LEATHER, new ItemStack(Items.ROTTEN_FLESH, 1), 500);
     }
 }

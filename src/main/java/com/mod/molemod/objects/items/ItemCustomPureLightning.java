@@ -28,36 +28,38 @@ public class ItemCustomPureLightning extends Item {
         setCreativeTab(tab);
     }
 
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-    {
-
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         Minecraft mc = Minecraft.getMinecraft();
 
         BlockPos blockPos = playerIn.getPosition();
-
         IBlockState blockState = worldIn.getBlockState(blockPos.down(1));
 
         ItemStack thorsHammer = new ItemStack(THORS_HAMMER);
 
-        if(blockState.getBlock() == Blocks.LAPIS_BLOCK && worldIn.getWorldInfo().isThundering()){
+        if (blockState.getBlock() == Blocks.LAPIS_BLOCK && worldIn.getWorldInfo().isThundering()) {
             if (playerIn.inventory.hasItemStack(new ItemStack(HAMMER))) {
                 int slotForHammer = playerIn.inventory.getSlotFor(new ItemStack(HAMMER));
+
                 playerIn.inventory.removeStackFromSlot(slotForHammer);
                 playerIn.inventory.addItemStackToInventory(thorsHammer);
                 playerIn.inventory.removeStackFromSlot(playerIn.inventory.getSlotFor(new ItemStack(PURE_LIGHTNING)));
-                EntityLightningBolt bolt = new EntityLightningBolt(worldIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(), true);
+
+                EntityLightningBolt bolt = new EntityLightningBolt(worldIn, blockPos.getX(),
+                        blockPos.getY(), blockPos.getZ(), true);
+
                 worldIn.spawnEntity(bolt);
-                worldIn.playSound(playerIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.NEUTRAL, 1, 1);
-                worldIn.playSound(playerIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.NEUTRAL, 1, 1);
-            }else{
-                mc.ingameGUI.displayTitle("You need a Sacrifice","",1, 1, 1);
+                worldIn.playSound(playerIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(),
+                        SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.NEUTRAL, 1, 1);
+                worldIn.playSound(playerIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(),
+                        SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.NEUTRAL, 1, 1);
+            } else {
+                mc.ingameGUI.displayTitle("You need a Sacrifice", "", 1, 1, 1);
             }
-        }else if (blockState.getBlock() != Blocks.LAPIS_BLOCK && !worldIn.getWorldInfo().isThundering()){
+        } else if (blockState.getBlock() != Blocks.LAPIS_BLOCK && !worldIn.getWorldInfo().isThundering()) {
             mc.ingameGUI.displayTitle("You are not worthy!", "", 1, 1, 1);
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
-
     }
 
 }

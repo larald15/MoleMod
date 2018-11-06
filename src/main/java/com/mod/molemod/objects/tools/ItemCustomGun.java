@@ -4,7 +4,6 @@ import com.mod.molemod.objects.entities.EntityCustomArrow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -32,29 +31,33 @@ public class ItemCustomGun extends Item {
         Minecraft mc = Minecraft.getMinecraft();
 
         arrow.setDamage(20);
+        arrow.setSilent(true);
         arrow.setPosition(playerIn.posX, playerIn.posY + 1.5, playerIn.posZ);
         arrow.shoot(aim.x, aim.y, aim.z, 10, 0);
 
         if (playerIn.isCreative()) {
+            //Spawn Particles
+            worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
+                    playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
+
             worldIn.spawnEntity(arrow);
-
-            //Sound
-            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ,
-                    SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 1, 0);
-        } else if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
-            worldIn.spawnEntity(arrow);
-
-            //Sound
-            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ,
-                    SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 1, 0);
-
-            int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));
-            ItemStack itemBullet = playerIn.inventory.getStackInSlot(slotForBullet);
-            int size = itemBullet.getCount() - 1;
-
-            itemBullet.setCount(size);
         } else {
-            mc.ingameGUI.displayTitle("You have no ammo!", "", 1, 1, 1);
+            if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
+                worldIn.spawnEntity(arrow);
+
+                //Spawn Particles
+                worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
+                        playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
+
+                //Reduce Bullet Amount
+                int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));
+                ItemStack itemBullet = playerIn.inventory.getStackInSlot(slotForBullet);
+                int size = itemBullet.getCount() - 1;
+
+                itemBullet.setCount(size);
+            } else {
+                mc.ingameGUI.displayTitle("You have no ammo!", "", 1, 1, 1);
+            }
         }
 
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);

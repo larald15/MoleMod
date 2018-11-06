@@ -1,5 +1,6 @@
 package com.mod.molemod.init;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -16,7 +17,7 @@ public class CraftingRecipes {
         GameRegistry.addShapedRecipe(new ResourceLocation("Bullet"), null, new ItemStack(BULLET, 16),
                 " X ", " Y ", " Z ", 'X', Items.FLINT, 'Y', Items.IRON_INGOT, 'Z', Items.GUNPOWDER);
         GameRegistry.addShapedRecipe(new ResourceLocation("Hammer"), null, new ItemStack(HAMMER),
-                " XX", " YX", "X  ", 'X', Items.IRON_INGOT, 'Y', Items.STICK);
+                "XXX", "XYX", " Z ", 'X', Blocks.LOG, 'Y', Items.STICK, 'Z', Blocks.IRON_BLOCK);
     }
 
     public void initShapelessRecipes() {

@@ -1,5 +1,6 @@
 package com.mod.molemod.objects.tools;
 
+import com.mod.molemod.utilities.CustomTimer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleCrit;
@@ -8,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -18,9 +20,11 @@ import net.minecraft.world.WorldEntitySpawner;
 
 import java.util.Timer;
 
-public class ItemCustomWeapon extends ItemAxe {
+public class ItemCustomHammer extends ItemAxe {
 
-    public ItemCustomWeapon(String name, ToolMaterial material, float damage, float speed) {
+    private CustomTimer timer = new CustomTimer();
+
+    public ItemCustomHammer(String name, ToolMaterial material, float damage, float speed) {
         super(material, damage, speed);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -33,17 +37,24 @@ public class ItemCustomWeapon extends ItemAxe {
         EntityPlayer playIn = Minecraft.getMinecraft().player;
 
         //get position of the player and adding the aim vector
-        double x = playIn.getPosition().getX() +       aim.x * 4;
-        double y = playIn.getPosition().getY() + 1.5 + aim.y * 4;
-        double z = playIn.getPosition().getZ() +       aim.z * 4;
+        double playerX = playIn.getPosition().getX();
+        double playerY = playIn.getPosition().getY();
+        double playerZ = playIn.getPosition().getZ();
+        double x = playerX +       aim.x * 4;
+        double y = playerY + 1.5 + aim.y * 4;
+        double z = playerZ +       aim.z * 4;
 
-        //spawning the particle
-        World world = entityLiving.getEntityWorld();
-        world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, x, y, z, 0, 0, 0);
+        if(timer.miliSecondsPassed(2000)) {
+
+            //spawning the particle
+            World world = entityLiving.getEntityWorld();
+            world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, x, y, z, 0, 0, 0);
+            world.playSound((EntityPlayer) entityLiving, playerX, playerY, playerZ, SoundEvents.ITEM_SHIELD_BREAK, SoundCategory.NEUTRAL, 1, 1);
+            //world.playSound(playerX, playerY, playerZ, SoundEvents.ITEM_SHIELD_BREAK, SoundCategory.NEUTRAL, 1, 1, false);
+
+        }
 
         return false;
     }
-
-    //worked
 
 }

@@ -2,8 +2,10 @@ package com.mod.molemod.init;
 
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;
+import com.mod.molemod.objects.items.ItemCustomPureLightning;
 import com.mod.molemod.objects.tools.ItemCustomGun;
-import com.mod.molemod.objects.tools.ItemCustomWeapon;
+import com.mod.molemod.objects.tools.ItemCustomHammer;
+import com.mod.molemod.objects.tools.ItemCustomThorsHammer;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,6 +22,8 @@ public class Iteminit {
     //ToolMaterial
     public static final Item.ToolMaterial hammerToolMaterial = EnumHelper.addToolMaterial("HAMMER", 0, 350,
             0, 0, 0).setRepairItem(new ItemStack(Items.IRON_INGOT));
+    public static final Item.ToolMaterial thorsHammerToolMaterial = EnumHelper.addToolMaterial("THORS_HAMMER", 0, 450,
+            0, 0, 0).setRepairItem(new ItemStack(Items.IRON_INGOT));
 
     //Food
     public static final Item RAW_MOLE = new ItemCustomFood("raw_mole", 3, true);
@@ -31,10 +35,14 @@ public class Iteminit {
     public static final Item BULLET = new ItemCustom("bullet", CreativeTabs.COMBAT);
 
     //Tools
-    public static final Item HAMMER = new ItemCustomWeapon("hammer", hammerToolMaterial, 19f, -3.5f);
+    public static final Item HAMMER = new ItemCustomHammer("hammer", hammerToolMaterial, 14f, -3.5f);
+    public static final Item THORS_HAMMER = new ItemCustomThorsHammer("thors_hammer", thorsHammerToolMaterial, 18f, -3.5f);
 
     //Guns
     public static final Item LEEENFIELD = new ItemCustomGun("leeenfield");
+
+    //ActionItems
+    public static final Item PURE_LIGHTNING = new ItemCustomPureLightning("pure_lightning", CreativeTabs.MISC);
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
 
@@ -48,6 +56,8 @@ public class Iteminit {
         event.getRegistry().register(BULLET);
         event.getRegistry().register(HAMMER);
         event.getRegistry().register(LEEENFIELD);
+        event.getRegistry().register(THORS_HAMMER);
+        event.getRegistry().register(PURE_LIGHTNING);
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
@@ -58,6 +68,8 @@ public class Iteminit {
         registerRender(BULLET);
         registerRender(HAMMER);
         registerRender(LEEENFIELD);
+        registerRender(THORS_HAMMER);
+        registerRender(PURE_LIGHTNING);
     }
 
     private static void registerRender(Item item) {

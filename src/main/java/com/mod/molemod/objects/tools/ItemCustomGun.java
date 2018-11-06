@@ -4,6 +4,7 @@ import com.mod.molemod.objects.entities.EntityCustomArrow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
@@ -36,8 +37,16 @@ public class ItemCustomGun extends Item {
 
         if (playerIn.isCreative()) {
             worldIn.spawnEntity(arrow);
+
+            //Sound
+            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ,
+                    SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 1, 0);
         } else if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
             worldIn.spawnEntity(arrow);
+
+            //Sound
+            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ,
+                    SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 1, 0);
 
             int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));
             ItemStack itemBullet = playerIn.inventory.getStackInSlot(slotForBullet);

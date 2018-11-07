@@ -10,7 +10,7 @@ public class EntityCustomArrow extends EntityArrow {
     public EntityCustomArrow(World world, EntityLivingBase shoot) {
         super(world, shoot);
 
-        this.setSize(0.15f, 0.15f);
+        this.setSize(0.1f, 0.1f);
     }
 
     @Override

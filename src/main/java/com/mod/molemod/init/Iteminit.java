@@ -1,6 +1,6 @@
 package com.mod.molemod.init;
 
-import com.mod.molemod.objects.block.ItemCustomMoleBurrow;
+import com.mod.molemod.objects.blocks.ItemCustomMoleBurrow;
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;
 import com.mod.molemod.objects.items.ItemCustomPureLightning;

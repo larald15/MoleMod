@@ -1,9 +1,8 @@
-package com.mod.molemod.objects.block;
+package com.mod.molemod.objects.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 
 public class ItemCustomBlock extends Block {
 

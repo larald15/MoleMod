@@ -28,6 +28,7 @@ public class ItemCustomPureLightning extends Item {
         setCreativeTab(tab);
     }
 
+    @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         Minecraft mc = Minecraft.getMinecraft();
 

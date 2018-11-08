@@ -1,5 +1,6 @@
 package com.mod.molemod.objects.tools;
 
+import com.mod.molemod.MoleMod;
 import com.mod.molemod.objects.entities.EntityCustomArrow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
@@ -35,10 +36,20 @@ public class ItemCustomGun extends Item {
         arrow.setPosition(playerIn.posX, playerIn.posY + 1.5, playerIn.posZ);
         arrow.shoot(aim.x, aim.y, aim.z, 10, 0);
 
+        ResourceLocation location = new ResourceLocation(MoleMod.MODID, "lee_enfield_shot");
+        SoundEvent shot = new SoundEvent(location);
+
         if (playerIn.isCreative()) {
             //Spawn Particles
             worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
                     playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
+
+            //Make Sound
+            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, shot,
+                    SoundCategory.getByName("shot"), 1, 1.5f);
+
+            //Shoot Knockback
+
 
             worldIn.spawnEntity(arrow);
         } else {
@@ -47,7 +58,14 @@ public class ItemCustomGun extends Item {
 
                 //Spawn Particles
                 worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
-                        playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
+                        playerIn.posY + playerIn.eyeHeight, playerIn.posZ + aim.z, 0, 0, 0);
+
+                //Make Sound
+                worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, shot,
+                        SoundCategory.getByName("shot"), 5000, 1.5f);
+
+                //Shoot Knockback
+
 
                 //Reduce Bullet Amount
                 int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));

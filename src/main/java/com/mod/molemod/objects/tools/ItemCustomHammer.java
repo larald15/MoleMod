@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ItemCustomHammer extends ItemAxe {
 
-    private CustomTimer timer = new CustomTimer();
+    //private CustomTimer timer = new CustomTimer();
 
     public ItemCustomHammer(String name, ToolMaterial material, float damage, float speed) {
         super(material, damage, speed);
@@ -24,51 +24,21 @@ public class ItemCustomHammer extends ItemAxe {
     }
 
     @Override
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         EntityPlayer playIn = Minecraft.getMinecraft().player;
 
         double targetX = target.getPosition().getX();
         double targetY = target.getPosition().getY() + 1.5;
         double targetZ = target.getPosition().getZ();
 
-        if (timer.miliSecondsPassed(1000)) {
-            //spawning the particle
-            World world = playIn.getEntityWorld();
-            world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, targetX, targetY, targetZ, 0, 0, 0);
-            world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
-                    SoundEvents.ITEM_SHIELD_BREAK, SoundCategory.NEUTRAL, 1, 1);
-        }
+        //spawning the particle
+        World world = playIn.getEntityWorld();
+        world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, targetX, targetY, targetZ, 0, 0, 0);
+        world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
+                SoundEvents.ITEM_SHIELD_BREAK, SoundCategory.NEUTRAL, 1, 1);
 
         stack.damageItem(0, attacker);
         return true;
     }
 
-    /*
-    @Override
-    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
-        Vec3d aim = entityLiving.getLook(1);
-
-        EntityPlayer playIn = Minecraft.getMinecraft().player;
-
-        //get position of the player and adding the aim vector
-        double playerX = playIn.getPosition().getX();
-        double playerY = playIn.getPosition().getY();
-        double playerZ = playIn.getPosition().getZ();
-
-        double x = playerX + aim.x * 4;
-        double y = playerY + 1.5 + aim.y * 4;
-        double z = playerZ + aim.z * 4;
-
-        if (timer.miliSecondsPassed(2000)) {
-            //spawning the particle
-            World world = entityLiving.getEntityWorld();
-            world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, x, y, z, 0, 0, 0);
-            world.playSound((EntityPlayer) entityLiving, playerX, playerY, playerZ,
-                    SoundEvents.ITEM_SHIELD_BREAK, SoundCategory.NEUTRAL, 1, 1);
-        }
-
-        return false;
-    }
-    */
 }

@@ -1,0 +1,7 @@
+{
+  "lee_enfield_shot": {
+    "category": "shot",
+    "subtitle": "mymod.subtitle.lee_enfield_shot",
+    "sounds": [ "mymod:lee_enfield" ]
+  }
+}

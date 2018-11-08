@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class ItemCustomThorsHammer extends ItemAxe {
 
-    //private CustomTimer timer = new CustomTimer();
+    private CustomTimer timer = new CustomTimer();
 
     public ItemCustomThorsHammer(String name, ToolMaterial material, float damage, float speed) {
         super(material, damage, speed);
@@ -32,20 +32,32 @@ public class ItemCustomThorsHammer extends ItemAxe {
         double targetY = target.getPosition().getY();
         double targetZ = target.getPosition().getZ();
 
-        //spawning the particle
         World world = playIn.getEntityWorld();
 
-        EntityLightningBolt bolt = new EntityLightningBolt(world, targetX, targetY, targetZ, false);
+        if(timer.miliSecondsPassed(2100)) {
+            //spawning the particle
+            EntityLightningBolt bolt = new EntityLightningBolt(world, targetX, targetY, targetZ, false);
 
-        world.spawnEntity(bolt);
+            world.spawnEntity(bolt);
 
-        world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
-                SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.NEUTRAL, 1, 1);
-        world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
-                SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.NEUTRAL, 1, 1);
+            world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
+                    SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.NEUTRAL, 1, 1);
+            world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
+                    SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.NEUTRAL, 1, 1);
 
-        stack.damageItem(0, attacker);
-        return true;
+            stack.damageItem(0, attacker);
+            return true;
+        } else {
+            playIn.performHurtAnimation();
+            playIn.dropItem(true);
+            playIn.knockBack(playIn, 10, 1, 1);
+
+            world.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
+                    SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.NEUTRAL, 1, 1);
+
+            return false;
+        }
+
     }
 
 }

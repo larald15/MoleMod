@@ -1,5 +1,6 @@
 package com.mod.molemod.objects.tools;
 
+import com.mod.molemod.MoleMod;
 import com.mod.molemod.objects.entities.EntityCustomArrow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
@@ -40,6 +41,12 @@ public class ItemCustomGun extends Item {
             worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
                     playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
 
+            //Make Sound
+            playerIn.playSound(new SoundEvent(new ResourceLocation(MoleMod.MODID, "gunshot")), 1, 1);
+
+            //Shoot Knockback
+
+
             worldIn.spawnEntity(arrow);
         } else {
             if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
@@ -47,7 +54,10 @@ public class ItemCustomGun extends Item {
 
                 //Spawn Particles
                 worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
-                        playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
+                        playerIn.posY + playerIn.eyeHeight, playerIn.posZ + aim.z, 0, 0, 0);
+
+                //Shoot Knockback
+
 
                 //Reduce Bullet Amount
                 int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));
@@ -59,7 +69,6 @@ public class ItemCustomGun extends Item {
                 mc.ingameGUI.displayTitle("You have no ammo!", "", 1, 1, 1);
             }
         }
-
         return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, item);
     }
 

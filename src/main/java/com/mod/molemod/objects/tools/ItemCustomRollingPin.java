@@ -21,8 +21,7 @@ public class ItemCustomRollingPin extends ItemAxe {
         setCreativeTab(CreativeTabs.COMBAT);
     }
 
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 
         EntityPlayer playIn = Minecraft.getMinecraft().player;
 
@@ -35,7 +34,7 @@ public class ItemCustomRollingPin extends ItemAxe {
 
         world.playSound((EntityPlayer) attacker, playerX, playerY, playerZ, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.NEUTRAL, 1, 1.5f);
 
-        if(target.getName().equals("Zombie")){
+        if (target.getName().equals("Zombie")) {
             target.setDead();
         }
 

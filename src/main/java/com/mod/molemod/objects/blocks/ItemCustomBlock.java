@@ -8,7 +8,7 @@ public class ItemCustomBlock extends Block {
 
     protected String name;
 
-    public ItemCustomBlock(String name, Material material, CreativeTabs tab){
+    public ItemCustomBlock(String name, Material material, CreativeTabs tab) {
         super(material);
         this.name = name;
         setUnlocalizedName(name);

@@ -27,8 +27,7 @@ public class ItemCustomThorsHammer extends ItemAxe {
     }
 
     @Override
-    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
-    {
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         EntityPlayer playIn = Minecraft.getMinecraft().player;
 
         double targetX = target.getPosition().getX();
@@ -37,7 +36,7 @@ public class ItemCustomThorsHammer extends ItemAxe {
 
         World worldIn = playIn.getEntityWorld();
 
-        if(timer.miliSecondsPassed(2100)) {
+        if (timer.miliSecondsPassed(2100)) {
             //spawning the particle
             EntityLightningBolt bolt = new EntityLightningBolt(worldIn, targetX, targetY, targetZ, false);
 
@@ -68,7 +67,7 @@ public class ItemCustomThorsHammer extends ItemAxe {
         ResourceLocation location;
         SoundEvent sound;
 
-        if(random >= 1 && random <= 33) {
+        if (random >= 1 && random <= 33) {
             location = new ResourceLocation(MoleMod.MODID, "hit_1");
             sound = new SoundEvent(location);
 

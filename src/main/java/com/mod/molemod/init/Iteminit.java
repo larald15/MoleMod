@@ -56,13 +56,13 @@ public class Iteminit {
     public static final Item PURE_LIGHTNING = new ItemCustomPureLightning("pure_lightning", CreativeTabs.MISC);
 
     //Blocks
-    public static final Block MOLE_BURROW = new ItemCustomMoleBurrow("mole_burrow", moleBurrowMaterial, CreativeTabs.DECORATIONS);
+    //public static final Block MOLE_BURROW = new ItemCustomMoleBurrow("mole_burrow", moleBurrowMaterial, CreativeTabs.DECORATIONS);
 
     //ItemBlocks
-    public static final ItemBlock MOLE_BURROW_ITEM = new ItemBlock(MOLE_BURROW);
+    //public static final ItemBlock MOLE_BURROW_ITEM = new ItemBlock(MOLE_BURROW);
 
     public void registerBlocks(RegistryEvent.Register<Block> event) {
-        event.getRegistry().register(MOLE_BURROW);
+        //event.getRegistry().register(MOLE_BURROW);
     }
 
     public void registerItems(RegistryEvent.Register<Item> event) {
@@ -76,7 +76,7 @@ public class Iteminit {
         event.getRegistry().register(THORS_HAMMER);
         event.getRegistry().register(PURE_LIGHTNING);
         event.getRegistry().register(ROLLING_PIN);
-        event.getRegistry().register(MOLE_BURROW_ITEM);
+        //event.getRegistry().register(MOLE_BURROW_ITEM);
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
@@ -90,7 +90,7 @@ public class Iteminit {
         registerRender(THORS_HAMMER);
         registerRender(PURE_LIGHTNING);
         registerRender(ROLLING_PIN);
-        registerRender(MOLE_BURROW_ITEM);
+        //registerRender(MOLE_BURROW_ITEM);
     }
 
     private static void registerRender(Item item) {

@@ -1,7 +1,37 @@
 {
   "lee_enfield_shot": {
     "category": "shot",
-    "subtitle": "mymod.subtitle.lee_enfield_shot",
-    "sounds": [ "mymod:lee_enfield" ]
+    "subtitle": "molemod.subtitle.lee_enfield_shot",
+    "sounds": [
+      "molemod:gun_sounds/lee_enfield_shot"
+    ]
+  },
+  "hit_1": {
+    "category": "hit",
+    "subtitle": "molemod.subtitle.hit_1",
+    "sounds": [
+      "molemod:hit_sounds/hit_1"
+    ]
+  },
+  "hit_2": {
+    "category": "hit",
+    "subtitle": "molemod.subtitle.hit_2",
+    "sounds": [
+      "molemod:hit_sounds/hit_2"
+    ]
+  },
+  "hit_3": {
+    "category": "hit",
+    "subtitle": "molemod.subtitle.hit_3",
+    "sounds": [
+      "molemod:hit_sounds/hit_3"
+    ]
+  },
+  "grunt": {
+    "category": "hit",
+    "subtitle": "molemod.subtitle.grunt",
+    "sounds": [
+      "molemod:hit_sounds/grunt"
+    ]
   }
 }

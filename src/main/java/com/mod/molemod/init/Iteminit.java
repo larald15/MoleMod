@@ -1,6 +1,5 @@
 package com.mod.molemod.init;
 
-import com.mod.molemod.objects.blocks.ItemCustomMoleBurrow;
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;
 import com.mod.molemod.objects.items.ItemCustomPureLightning;
@@ -15,7 +14,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;

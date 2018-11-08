@@ -31,7 +31,8 @@ public class ItemCustomGun extends Item {
 
         Minecraft mc = Minecraft.getMinecraft();
 
-        arrow.setDamage(20);
+        arrow.setDamage(10);
+        arrow.setFire(3);
         arrow.setSilent(true);
         arrow.setPosition(playerIn.posX, playerIn.posY + 1.5, playerIn.posZ);
         arrow.shoot(aim.x, aim.y, aim.z, 10, 0);
@@ -49,7 +50,8 @@ public class ItemCustomGun extends Item {
                     SoundCategory.getByName("shot"), 1, 1.5f);
 
             //Shoot Knockback
-
+            playerIn.setLocationAndAngles(playerIn.posX, playerIn.posY, playerIn.posZ,
+                    playerIn.rotationYaw + 0.5f, playerIn.rotationPitch - 8);
 
             worldIn.spawnEntity(arrow);
         } else {
@@ -65,6 +67,8 @@ public class ItemCustomGun extends Item {
                         SoundCategory.getByName("shot"), 5000, 1.5f);
 
                 //Shoot Knockback
+                playerIn.setLocationAndAngles(playerIn.posX, playerIn.posY, playerIn.posZ,
+                        playerIn.rotationYaw + 0.5f, playerIn.rotationPitch - 8);
 
 
                 //Reduce Bullet Amount

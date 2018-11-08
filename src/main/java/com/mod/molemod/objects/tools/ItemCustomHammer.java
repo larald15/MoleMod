@@ -1,6 +1,5 @@
 package com.mod.molemod.objects.tools;
 
-import com.mod.molemod.utilities.CustomTimer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,6 +9,7 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 
 public class ItemCustomHammer extends ItemAxe {
 

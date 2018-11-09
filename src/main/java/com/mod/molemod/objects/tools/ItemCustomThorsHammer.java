@@ -21,6 +21,7 @@ public class ItemCustomThorsHammer extends ItemAxe {
 
     public ItemCustomThorsHammer(String name, ToolMaterial material, float damage, float speed) {
         super(material, damage, speed);
+
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);

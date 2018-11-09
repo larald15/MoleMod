@@ -9,7 +9,6 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 
 public class ItemCustomHammer extends ItemAxe {
 
@@ -28,7 +27,7 @@ public class ItemCustomHammer extends ItemAxe {
         EntityPlayer playIn = Minecraft.getMinecraft().player;
 
         double targetX = target.getPosition().getX();
-        double targetY = target.getPosition().getY() + 1.5;
+        double targetY = target.getPosition().getY() + playIn.eyeHeight;
         double targetZ = target.getPosition().getZ();
 
         //spawning the particle

@@ -34,7 +34,7 @@ public class ItemCustomGun extends Item {
         arrow.setDamage(10);
         arrow.setFire(3);
         arrow.setSilent(true);
-        arrow.setPosition(playerIn.posX, playerIn.posY + 1.5, playerIn.posZ);
+        arrow.setPosition(playerIn.posX, playerIn.posY + playerIn.eyeHeight, playerIn.posZ);
         arrow.shoot(aim.x, aim.y, aim.z, 10, 0);
 
         ResourceLocation location = new ResourceLocation(MoleMod.MODID, "lee_enfield_shot");

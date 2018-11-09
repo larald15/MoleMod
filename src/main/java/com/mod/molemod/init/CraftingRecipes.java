@@ -12,7 +12,11 @@ import static com.mod.molemod.init.Iteminit.*;
 public class CraftingRecipes {
 
     public void initShapedRecipes() {
-        //TO-DO: Make the Gun-Recipes
+        GameRegistry.addShapedRecipe(new ResourceLocation("Lee-Enfield Barrel"), null, new ItemStack(LEEENFIELD_BARREL),
+                "   ", "XYY", " X ", 'X', Blocks.OBSIDIAN, 'Y', Blocks.LOG);
+
+        GameRegistry.addShapedRecipe(new ResourceLocation("Lee-Enfield"), null, new ItemStack(LEEENFIELD),
+                "   ", "X  ", "   ", 'X', LEEENFIELD_BARREL);
 
         GameRegistry.addShapedRecipe(new ResourceLocation("Refined Leather"), null, new ItemStack(LEATHER_REFINED),
                 "   ", "X X", " X ", 'X', LEATHER_SCRAP);

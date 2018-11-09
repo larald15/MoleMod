@@ -49,6 +49,7 @@ public class Iteminit {
 
     //Guns
     public static final Item LEEENFIELD = new ItemCustomGun("leeenfield");
+    public static final Item LEEENFIELD_BARREL = new ItemCustom("leeenfield_barrel", CreativeTabs.MISC);
 
     //ActionItems
     public static final Item PURE_LIGHTNING = new ItemCustomPureLightning("pure_lightning", CreativeTabs.MISC);
@@ -71,6 +72,7 @@ public class Iteminit {
         event.getRegistry().register(BULLET);
         event.getRegistry().register(HAMMER);
         event.getRegistry().register(LEEENFIELD);
+        event.getRegistry().register(LEEENFIELD_BARREL);
         event.getRegistry().register(THORS_HAMMER);
         event.getRegistry().register(PURE_LIGHTNING);
         event.getRegistry().register(ROLLING_PIN);
@@ -85,6 +87,7 @@ public class Iteminit {
         registerRender(BULLET);
         registerRender(HAMMER);
         registerRender(LEEENFIELD);
+        registerRender(LEEENFIELD_BARREL);
         registerRender(THORS_HAMMER);
         registerRender(PURE_LIGHTNING);
         registerRender(ROLLING_PIN);

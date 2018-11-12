@@ -35,31 +35,35 @@ public class ItemCustomPureLightning extends Item {
         BlockPos blockPos = playerIn.getPosition();
         IBlockState blockState = worldIn.getBlockState(blockPos.down(1));
 
-        ItemStack thorsHammer = new ItemStack(THORS_HAMMER);
+        ItemStack thorsHammer = new ItemStack(THORS_HAMMER, 1);
 
         if (blockState.getBlock() == Blocks.LAPIS_BLOCK && worldIn.getWorldInfo().isThundering()) {
-            if (playerIn.inventory.hasItemStack(new ItemStack(HAMMER))) {
+            if (playerIn.inventory.hasItemStack(new ItemStack(HAMMER, 1))) {
                 int slotForHammer = playerIn.inventory.getSlotFor(new ItemStack(HAMMER));
 
                 playerIn.inventory.removeStackFromSlot(slotForHammer);
                 playerIn.inventory.addItemStackToInventory(thorsHammer);
-                playerIn.inventory.removeStackFromSlot(playerIn.inventory.getSlotFor(new ItemStack(PURE_LIGHTNING)));
+                playerIn.inventory.removeStackFromSlot(playerIn.inventory.getSlotFor(new ItemStack(PURE_LIGHTNING, 1)));
 
                 EntityLightningBolt bolt = new EntityLightningBolt(worldIn, blockPos.getX(),
                         blockPos.getY(), blockPos.getZ(), true);
 
                 worldIn.spawnEntity(bolt);
+
                 worldIn.playSound(playerIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(),
                         SoundEvents.ENTITY_LIGHTNING_THUNDER, SoundCategory.NEUTRAL, 1, 1);
                 worldIn.playSound(playerIn, blockPos.getX(), blockPos.getY(), blockPos.getZ(),
                         SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.NEUTRAL, 1, 1);
-            } else {
-                mc.ingameGUI.displayTitle("You need a Sacrifice", "", 1, 1, 1);
-            }
-        } else if (blockState.getBlock() != Blocks.LAPIS_BLOCK && !worldIn.getWorldInfo().isThundering()) {
-            mc.ingameGUI.displayTitle("You are not worthy!", "", 1, 1, 1);
-        }
 
+                mc.ingameGUI.displayTitle("You are worthy!", "", 1, 1, 0);
+
+                return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+            } else {
+                mc.ingameGUI.displayTitle("You need a Sacrifice", "", 1, 1, 0);
+            }
+        } else {
+            mc.ingameGUI.displayTitle("You are not worthy!", "", 1, 1, 0);
+        }
         return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
     }
 

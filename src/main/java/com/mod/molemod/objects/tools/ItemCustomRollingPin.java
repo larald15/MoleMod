@@ -5,35 +5,37 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class ItemCustomRollingPin extends ItemAxe {
+public class ItemCustomRollingPin extends Item {
 
-    public ItemCustomRollingPin(String name, ToolMaterial material, float damage, float speed) {
-        super(material, damage, speed);
+    public ItemCustomRollingPin(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
+
+        this.maxStackSize = 1;
     }
 
+    @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+        EntityPlayer playerIn = Minecraft.getMinecraft().player;
 
-        EntityPlayer playIn = Minecraft.getMinecraft().player;
-
-        double playerX = playIn.getPosition().getX();
-        double playerY = playIn.getPosition().getY();
-        double playerZ = playIn.getPosition().getZ();
+        double playerX = playerIn.posX;
+        double playerY = playerIn.posY;
+        double playerZ = playerIn.posZ;
 
         World world = attacker.getEntityWorld();
-        Minecraft mc = Minecraft.getMinecraft();
 
-        world.playSound((EntityPlayer) attacker, playerX, playerY, playerZ, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.NEUTRAL, 1, 1.5f);
+        world.playSound(playerIn, playerX, playerY, playerZ, SoundEvents.BLOCK_WOOD_PLACE,
+                SoundCategory.NEUTRAL, 1, 1.5f);
 
         if (target.getName().equals("Zombie")) {
-            target.setDead();
+            target.setHealth(0f);
+            stack.setCount(0);
         }
 
         return false;

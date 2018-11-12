@@ -27,6 +27,15 @@ public class ItemCustomThorsHammer extends ItemAxe {
         setCreativeTab(CreativeTabs.COMBAT);
     }
 
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    {
+        ItemStack item = playerIn.getActiveItemStack();
+
+        System.out.println(playerIn.getCooldownTracker().getCooldown(item.getItem(), Minecraft.getMinecraft().getRenderPartialTicks()));
+
+        return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
+    }
+
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         EntityPlayer playIn = Minecraft.getMinecraft().player;
@@ -53,7 +62,7 @@ public class ItemCustomThorsHammer extends ItemAxe {
         } else {
             playIn.performHurtAnimation();
             playIn.dropItem(true);
-            playIn.knockBack(playIn, 10, 1, 1);
+            playIn.knockBack(playIn, 10, 2, 2);
 
             playHitSound(playIn);
 

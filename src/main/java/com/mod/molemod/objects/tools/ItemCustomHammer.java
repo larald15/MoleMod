@@ -12,8 +12,6 @@ import net.minecraft.world.World;
 
 public class ItemCustomHammer extends ItemAxe {
 
-    //private CustomTimer timer = new CustomTimer();
-
     public ItemCustomHammer(String name, ToolMaterial material, float damage, float speed) {
         super(material, damage, speed);
 

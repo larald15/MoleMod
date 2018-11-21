@@ -34,8 +34,12 @@ public class ItemCustomRollingPin extends Item {
                 SoundCategory.NEUTRAL, 1, 1.5f);
 
         if (target.getName().equals("Zombie")) {
-            target.setHealth(0f);
-            stack.setCount(0);
+            if(playerIn.isCreative()) {
+                target.setHealth(0f);
+            } else {
+                target.setHealth(0f);
+                stack.setCount(stack.getCount() - 1);
+            }
         }
 
         return false;

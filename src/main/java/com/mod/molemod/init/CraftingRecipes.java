@@ -22,12 +22,13 @@ public class CraftingRecipes {
         GameRegistry.addShapedRecipe(new ResourceLocation("Lee-Enfield Stock"), null, new ItemStack(LEEENFIELD_STOCK),
                 " WX", "WWX", "WWX", 'X', Blocks.OBSIDIAN, 'W', Blocks.LOG);
 
+        GameRegistry.addShapedRecipe(new ResourceLocation("Hammer"), null, new ItemStack(HAMMER),
+                "XXX", "XYX", " Z ", 'X', Blocks.LOG, 'Y', Items.STICK, 'Z', Blocks.IRON_BLOCK);
+
         GameRegistry.addShapedRecipe(new ResourceLocation("Refined Leather"), null, new ItemStack(LEATHER_REFINED),
                 "   ", "X X", " X ", 'X', LEATHER_SCRAP);
         GameRegistry.addShapedRecipe(new ResourceLocation("Bullet"), null, new ItemStack(BULLET, 2),
                 " X ", " Y ", " Z ", 'X', Items.FLINT, 'Y', Items.IRON_INGOT, 'Z', Items.GUNPOWDER);
-        GameRegistry.addShapedRecipe(new ResourceLocation("Hammer"), null, new ItemStack(HAMMER),
-                "XXX", "XYX", " Z ", 'X', Blocks.LOG, 'Y', Items.STICK, 'Z', Blocks.IRON_BLOCK);
     }
 
     public void initShapelessRecipes() {

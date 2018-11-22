@@ -2,8 +2,10 @@ package com.mod.molemod.objects.tools;
 
 import com.mod.molemod.MoleMod;
 import com.mod.molemod.objects.entities.EntityCustomArrow;
+import com.mod.molemod.utilities.CustomTimer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,12 +17,23 @@ import static com.mod.molemod.init.ItemInit.BULLET;
 
 public class ItemCustomGun extends Item {
 
+    private long startTime = Long.MAX_VALUE, endTime = Long.MIN_VALUE;
+    private boolean shoot = false;
+
     public ItemCustomGun(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.COMBAT);
 
         setMaxStackSize(1);
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        if (!shoot) {
+            startTime = worldIn.getWorldTime();
+            shoot = true;
+        }
     }
 
     @Override
@@ -40,45 +53,50 @@ public class ItemCustomGun extends Item {
         ResourceLocation location = new ResourceLocation(MoleMod.MODID, "lee_enfield_shot");
         SoundEvent shot = new SoundEvent(location);
 
-        if (playerIn.isCreative()) {
-            //Spawn Particles
-            worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
-                    playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
+        CustomTimer customTimer = new CustomTimer();
+        endTime = worldIn.getWorldTime();
 
-            //Make Sound
-            worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, shot,
-                    SoundCategory.getByName("shot"), 1, 1.5f);
-
-            //Shoot Knockback
-            playerIn.setLocationAndAngles(playerIn.posX, playerIn.posY, playerIn.posZ,
-                    playerIn.rotationYaw + 0.5f, playerIn.rotationPitch - 8);
-
-            worldIn.spawnEntity(arrow);
-        } else {
-            if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
-                worldIn.spawnEntity(arrow);
-
+        if (customTimer.checkTime(startTime, endTime, playerIn)) {
+            if (playerIn.isCreative()) {
                 //Spawn Particles
                 worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
-                        playerIn.posY + playerIn.eyeHeight, playerIn.posZ + aim.z, 0, 0, 0);
+                        playerIn.posY + 1.5, playerIn.posZ + aim.z, 0, 0, 0);
 
                 //Make Sound
                 worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, shot,
-                        SoundCategory.getByName("shot"), 5000, 1.5f);
+                        SoundCategory.getByName("shot"), 1, 1.5f);
 
                 //Shoot Knockback
                 playerIn.setLocationAndAngles(playerIn.posX, playerIn.posY, playerIn.posZ,
                         playerIn.rotationYaw + 0.5f, playerIn.rotationPitch - 8);
 
-
-                //Reduce Bullet Amount
-                int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));
-                ItemStack itemBullet = playerIn.inventory.getStackInSlot(slotForBullet);
-                int size = itemBullet.getCount() - 1;
-
-                itemBullet.setCount(size);
+                worldIn.spawnEntity(arrow);
             } else {
-                mc.ingameGUI.displayTitle("You have no ammo!", "", 1, 1, 1);
+                if (playerIn.inventory.hasItemStack(new ItemStack(BULLET))) {
+                    worldIn.spawnEntity(arrow);
+
+                    //Spawn Particles
+                    worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_NORMAL, playerIn.posX + aim.x,
+                            playerIn.posY + playerIn.eyeHeight, playerIn.posZ + aim.z, 0, 0, 0);
+
+                    //Make Sound
+                    worldIn.playSound(playerIn, playerIn.posX, playerIn.posY, playerIn.posZ, shot,
+                            SoundCategory.getByName("shot"), 5000, 1.5f);
+
+                    //Shoot Knockback
+                    playerIn.setLocationAndAngles(playerIn.posX, playerIn.posY, playerIn.posZ,
+                            playerIn.rotationYaw + 0.5f, playerIn.rotationPitch - 8);
+
+
+                    //Reduce Bullet Amount
+                    int slotForBullet = playerIn.inventory.getSlotFor(new ItemStack(BULLET));
+                    ItemStack itemBullet = playerIn.inventory.getStackInSlot(slotForBullet);
+                    int size = itemBullet.getCount() - 1;
+
+                    itemBullet.setCount(size);
+                } else {
+                    mc.ingameGUI.displayTitle("You have no ammo!", "", 1, 1, 1);
+                }
             }
         }
 

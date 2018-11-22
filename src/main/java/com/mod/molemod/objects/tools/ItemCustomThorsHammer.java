@@ -4,6 +4,7 @@ import com.mod.molemod.MoleMod;
 import com.mod.molemod.utilities.CustomTimer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,7 +18,8 @@ import java.util.Random;
 
 public class ItemCustomThorsHammer extends ItemAxe {
 
-    private CustomTimer timer = new CustomTimer();
+    private long startTime = Long.MAX_VALUE, endTime = Long.MIN_VALUE;
+    private boolean firstTime = true;
 
     public ItemCustomThorsHammer(String name, ToolMaterial material, float damage, float speed) {
         super(material, damage, speed);
@@ -28,16 +30,29 @@ public class ItemCustomThorsHammer extends ItemAxe {
     }
 
     @Override
+    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        if (firstTime && isSelected) {
+            startTime = worldIn.getWorldTime();
+            firstTime = false;
+        } else if (!isSelected) {
+            firstTime = true;
+        }
+    }
+
+    @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         EntityPlayer playIn = Minecraft.getMinecraft().player;
+
+        World worldIn = playIn.getEntityWorld();
 
         double targetX = target.getPosition().getX();
         double targetY = target.getPosition().getY();
         double targetZ = target.getPosition().getZ();
 
-        World worldIn = playIn.getEntityWorld();
+        CustomTimer customTimer = new CustomTimer();
+        endTime = worldIn.getWorldTime();
 
-        if (timer.miliSecondsPassed(2100)) {
+        if (customTimer.checkTime(startTime, endTime, playIn)) {
             //spawning the particle
             EntityLightningBolt bolt = new EntityLightningBolt(worldIn, targetX, targetY, targetZ, false);
 
@@ -48,6 +63,8 @@ public class ItemCustomThorsHammer extends ItemAxe {
             worldIn.playSound(playIn, playIn.posX, playIn.posY, playIn.posZ,
                     SoundEvents.ENTITY_LIGHTNING_IMPACT, SoundCategory.NEUTRAL, 1, 1);
 
+            firstTime = true;
+
             stack.damageItem(0, attacker);
             return true;
         } else {
@@ -56,6 +73,8 @@ public class ItemCustomThorsHammer extends ItemAxe {
             playIn.knockBack(playIn, 10, 2, 2);
 
             playHitSound(playIn);
+
+            firstTime = true;
 
             return false;
         }

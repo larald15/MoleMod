@@ -4,16 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class ItemCustomMoleBurrow extends Block {
+public class BlockCustomBurrow extends Block {
 
-    public ItemCustomMoleBurrow(String name, Material materialIn) {
+    public BlockCustomBurrow(String name, Material materialIn) {
         super(materialIn);
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-
-        setHardness(1f);
-        setResistance(4f);
     }
 
 }

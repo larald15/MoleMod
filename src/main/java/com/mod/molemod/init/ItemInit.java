@@ -1,14 +1,17 @@
 package com.mod.molemod.init;
 
+import com.mod.molemod.objects.blocks.BlockCustomBurrow;
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;
 import com.mod.molemod.objects.items.ItemCustomPureLightning;
 import com.mod.molemod.objects.tools.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -46,8 +49,11 @@ public class ItemInit {
     public static final Item LEEENFIELD_RECEIVER = new ItemCustom("leeenfield_receiver", CreativeTabs.MISC);
     public static final Item LEEENFIELD_STOCK = new ItemCustom("leeenfield_stock", CreativeTabs.MISC);
 
-    public void registerBlocks(RegistryEvent.Register<Block> event) {
+    //Blocks
+    public static final Block MOLE_BURROW = new BlockCustomBurrow("mole_burrow", Material.GROUND);
 
+    public void registerBlocks(RegistryEvent.Register<Block> event) {
+        event.getRegistry().register(MOLE_BURROW);
     }
 
     public void registerItems(RegistryEvent.Register<Item> event) {
@@ -69,6 +75,8 @@ public class ItemInit {
         event.getRegistry().register(LEEENFIELD_STOCK);
 
         event.getRegistry().register(PURE_LIGHTNING);
+
+        event.getRegistry().register(new ItemBlock(MOLE_BURROW).setRegistryName(MOLE_BURROW.getRegistryName()));
     }
 
     public static void registerRenders(ModelRegistryEvent event) {
@@ -90,6 +98,8 @@ public class ItemInit {
         registerRender(LEEENFIELD_STOCK);
 
         registerRender(PURE_LIGHTNING);
+
+        registerRender(Item.getItemFromBlock(MOLE_BURROW));
     }
 
     private static void registerRender(Item item) {

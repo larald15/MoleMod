@@ -4,16 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class ItemCustomBlock extends Block {
+public class BlockBasic extends Block {
 
-    protected String name;
-
-    public ItemCustomBlock(String name, Material material, CreativeTabs tab) {
-        super(material);
-        this.name = name;
+    public BlockBasic(String name, Material materialIn) {
+        super(materialIn);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(tab);
+        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 
 }

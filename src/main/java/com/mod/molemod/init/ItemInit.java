@@ -15,7 +15,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 
-public class Iteminit {
+public class ItemInit {
 
     //ToolMaterial
     public static final Item.ToolMaterial HAMMER_TOOL_MATERIAL = EnumHelper.addToolMaterial("HAMMER", 0, 400,

@@ -16,9 +16,9 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static com.mod.molemod.init.Iteminit.HAMMER;
-import static com.mod.molemod.init.Iteminit.PURE_LIGHTNING;
-import static com.mod.molemod.init.Iteminit.THORS_HAMMER;
+import static com.mod.molemod.init.ItemInit.HAMMER;
+import static com.mod.molemod.init.ItemInit.PURE_LIGHTNING;
+import static com.mod.molemod.init.ItemInit.THORS_HAMMER;
 
 public class ItemCustomPureLightning extends Item {
 

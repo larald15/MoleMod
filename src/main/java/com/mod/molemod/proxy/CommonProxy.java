@@ -1,7 +1,8 @@
 package com.mod.molemod.proxy;
 
 import com.mod.molemod.MoleMod;
-import com.mod.molemod.init.Iteminit;
+import com.mod.molemod.init.BlockInit;
+import com.mod.molemod.init.ItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -15,7 +16,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = MoleMod.MODID)
 public class CommonProxy {
 
-    private static Iteminit iteminit = new Iteminit();
+    private static ItemInit iteminit = new ItemInit();
+    private static BlockInit blockInit = new BlockInit();
 
     public void preInit(FMLPreInitializationEvent event) {
 
@@ -30,17 +32,20 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         iteminit.registerBlocks(event);
+        blockInit.registerBlocks(event);
     }
 
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         iteminit.registerItems(event);
+        blockInit.registerItemBlocks(event);
     }
 
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
         iteminit.registerRenders(event);
+        blockInit.registerRenders(event);
     }
 
 }

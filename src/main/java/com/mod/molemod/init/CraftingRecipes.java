@@ -7,7 +7,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import static com.mod.molemod.init.Iteminit.*;
+import static com.mod.molemod.init.ItemInit.*;
 
 public class CraftingRecipes {
 

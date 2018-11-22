@@ -11,7 +11,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-import static com.mod.molemod.init.Iteminit.BULLET;
+import static com.mod.molemod.init.ItemInit.BULLET;
 
 public class ItemCustomGun extends Item {
 

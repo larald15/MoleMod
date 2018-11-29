@@ -33,7 +33,7 @@ public class ItemInit {
     //Items
     public static final Item LEATHER_SCRAP = new ItemCustom("leather_scrap", CreativeTabs.MISC);
     public static final Item LEATHER_REFINED = new ItemCustom("leather_refined", CreativeTabs.MISC);
-    public static final Item BULLET = new ItemCustom("bullet", CreativeTabs.MISC);
+    public static final Item BULLET = new ItemCustom("bullet", CreativeTabs.COMBAT);
 
     //ActionItems
     public static final Item PURE_LIGHTNING = new ItemCustomPureLightning("pure_lightning", CreativeTabs.MISC);

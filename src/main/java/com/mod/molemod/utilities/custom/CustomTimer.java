@@ -1,4 +1,4 @@
-package com.mod.molemod.utilities;
+package com.mod.molemod.utilities.custom;
 
 import net.minecraft.entity.player.EntityPlayer;
 

@@ -3,7 +3,6 @@ package com.mod.molemod.objects.entities;
 import com.mod.molemod.MoleMod;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -21,24 +20,18 @@ public class EntityMole extends EntityCow {
     }
 
     @Override
-    protected SoundEvent getAmbientSound()
-    {
-        //TO-DO new Sound
+    protected SoundEvent getAmbientSound() {
         return new SoundEvent(new ResourceLocation(MoleMod.MODID, "mole_ambient_sound"));
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
-    {
-        //TO-DO new Sound
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
         return new SoundEvent(new ResourceLocation(MoleMod.MODID, "grunt"));
     }
 
     @Override
-    protected SoundEvent getDeathSound()
-    {
-        //TO-DO new Sound
-        return SoundEvents.ENTITY_COW_DEATH;
+    protected SoundEvent getDeathSound() {
+        return new SoundEvent(new ResourceLocation(MoleMod.MODID, "mole_death_sound"));
     }
 
 

@@ -1,7 +1,7 @@
 package com.mod.molemod.objects.tools;
 
 import com.mod.molemod.MoleMod;
-import com.mod.molemod.utilities.CustomTimer;
+import com.mod.molemod.utilities.custom.CustomTimer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;

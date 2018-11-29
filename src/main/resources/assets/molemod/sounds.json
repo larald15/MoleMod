@@ -40,5 +40,12 @@
     "sounds": [
       "molemod:mole_sounds/mole_ambient_sound"
     ]
+  },
+  "mole_death_sound": {
+    "category": "mole",
+    "subtitle": "molemod.subtitle.mole_ambient_sound",
+    "sounds": [
+      "molemod:mole_sounds/mole_death_sound"
+    ]
   }
 }

@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static com.mod.molemod.init.ItemInit.*;
 
-public class CraftingRecipes {
+public class CraftingRecipesInit {
 
     public void initShapedRecipes() {
         //Gun crafting

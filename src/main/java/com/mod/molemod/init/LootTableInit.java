@@ -6,6 +6,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 
 public class LootTableInit {
 
-    public static final ResourceLocation MOLE_LOOT = LootTableList.register(new ResourceLocation(MoleMod.MODID, "mole"));
+    public static final ResourceLocation ENTITIES_MOLE = LootTableList.register(
+            new ResourceLocation(MoleMod.MODID, "mole"));
 
 }

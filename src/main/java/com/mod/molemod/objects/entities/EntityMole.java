@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-import static com.mod.molemod.init.LootTableInit.MOLE_LOOT;
+import static com.mod.molemod.init.LootTableInit.ENTITIES_MOLE;
 
 public class EntityMole extends EntityCow {
 
@@ -43,6 +43,6 @@ public class EntityMole extends EntityCow {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return MOLE_LOOT;
+        return ENTITIES_MOLE;
     }
 }

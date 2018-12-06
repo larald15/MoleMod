@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class RenderMole extends RenderLiving<EntityMole> {
 
-    private static final ResourceLocation TEXTURES = new ResourceLocation(MoleMod.MODID + "/textures/entity/mole.png");
+    private static final ResourceLocation TEXTURES = new ResourceLocation(MoleMod.MODID + ":textures/entity/mole.png");
 
     public RenderMole(RenderManager manager) {
         super(manager, new MoleModel(), 0.5f);

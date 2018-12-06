@@ -1,6 +1,5 @@
 package com.mod.molemod.init;
 
-import com.mod.molemod.MoleMod;
 import com.mod.molemod.objects.blocks.BlockCustomBurrow;
 import com.mod.molemod.objects.food.ItemCustomFood;
 import com.mod.molemod.objects.items.ItemCustom;

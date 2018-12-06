@@ -32,7 +32,6 @@ public class ItemCustomGun extends Item {
         Minecraft mc = Minecraft.getMinecraft();
 
         arrow.setDamage(10);
-        arrow.setFire(3);
         arrow.setSilent(true);
         arrow.setPosition(playerIn.posX, playerIn.posY + playerIn.eyeHeight, playerIn.posZ);
         arrow.shoot(aim.x, aim.y, aim.z, 8, 1);

@@ -2,7 +2,7 @@ package com.mod.molemod.utilities.render;
 
 import com.mod.molemod.MoleMod;
 import com.mod.molemod.objects.entities.EntityMole;
-import com.mod.molemod.utilities.model.MoleModel;
+import com.mod.molemod.objects.models.MoleModel;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

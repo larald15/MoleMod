@@ -1,7 +1,5 @@
 package com.mod.molemod.objects.entities;
 
-import com.mod.molemod.MoleMod;
-import net.minecraft.client.audio.Sound;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.init.SoundEvents;
@@ -9,9 +7,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootTableList;
 
 import javax.annotation.Nullable;
+
+import static com.mod.molemod.init.LootTableInit.MOLE_LOOT;
 
 public class EntityMole extends EntityCow {
 
@@ -44,6 +43,6 @@ public class EntityMole extends EntityCow {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return null;
+        return MOLE_LOOT;
     }
 }

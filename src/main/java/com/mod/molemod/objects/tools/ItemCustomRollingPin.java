@@ -33,7 +33,7 @@ public class ItemCustomRollingPin extends Item {
         world.playSound(playerIn, playerX, playerY, playerZ, SoundEvents.BLOCK_WOOD_PLACE,
                 SoundCategory.NEUTRAL, 1, 1.5f);
 
-        if (target.getName().equals("Zombie")) {
+        if (target.getName().equals("Mole")) {
             if(playerIn.isCreative()) {
                 target.setHealth(0f);
             } else {

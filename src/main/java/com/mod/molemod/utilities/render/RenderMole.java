@@ -2,7 +2,7 @@ package com.mod.molemod.utilities.render;
 
 import com.mod.molemod.MoleMod;
 import com.mod.molemod.objects.entities.EntityMole;
-import com.mod.molemod.utilities.model.ModelMole;
+import com.mod.molemod.utilities.model.MoleModel;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
@@ -11,10 +11,10 @@ import javax.annotation.Nullable;
 
 public class RenderMole extends RenderLiving<EntityMole> {
 
-    private static final ResourceLocation TEXTURES = new ResourceLocation(MoleMod.MODID + ":textures/entity/mole.png");
+    private static final ResourceLocation TEXTURES = new ResourceLocation(MoleMod.MODID + "/textures/entity/mole.png");
 
     public RenderMole(RenderManager manager) {
-        super(manager, new ModelMole(), 0.5f);
+        super(manager, new MoleModel(), 0.5f);
     }
 
     @Nullable

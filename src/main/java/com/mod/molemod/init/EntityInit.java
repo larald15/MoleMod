@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 public class EntityInit {
 
     public static void registerEntities() {
-        registerEntity("mole", EntityMole.class, 120, 50, 1147146, 000000);
+        registerEntity("mole", EntityMole.class, 1337, 50, 12890006, 000000);
     }
 
     public static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2) {

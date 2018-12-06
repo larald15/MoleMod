@@ -44,6 +44,6 @@ public class EntityMole extends EntityCow {
 
     @Nullable
     protected ResourceLocation getLootTable() {
-        return new LootTableList();
+        return null;
     }
 }

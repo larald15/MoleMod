@@ -1,48 +1,69 @@
 package com.mod.molemod.objects.entities;
 
 import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
+import static com.mod.molemod.init.ItemInit.*;
 
-import static com.mod.molemod.init.LootTableInit.ENTITIES_MOLE;
-
-public class EntityMole extends EntityCow {
+public class EntityMole extends EntityPig {
 
     public EntityMole(World worldIn) {
         super(worldIn);
+        this.setScaleForAge(true);
     }
 
     @Override
-    public EntityCow createChild(EntityAgeable ageable) {
+    protected void initEntityAI() {
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(1, new EntityAIPanic(this, 1.25D));
+        this.tasks.addTask(3, new EntityAIMate(this, 1.0D));
+        this.tasks.addTask(4, new EntityAITempt(this, 2.0D, Items.CARROT_ON_A_STICK, false));
+        this.tasks.addTask(5, new EntityAIFollowParent(this, 1.1D));
+        this.tasks.addTask(6, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 25.0F));
+        this.tasks.addTask(8, new EntityAILookIdle(this));
+    }
+
+    @Override
+    public void onDeath(DamageSource cause) {
+        super.onDeath(cause);
+
+        this.dropItem(RAW_MOLE, 1);
+        this.dropItem(LEATHER_SCRAP, 2);
+    }
+
+    @Override
+    public EntityPig createChild(EntityAgeable ageable) {
         return new EntityMole(world);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ENTITY_COW_AMBIENT;
+        return null;
         //return new SoundEvent(new ResourceLocation(MoleMod.MODID, "mole_ambient_sound"));
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ENTITY_COW_HURT;
+        return null;
         //return new SoundEvent(new ResourceLocation(MoleMod.MODID, "grunt"));
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ENTITY_COW_DEATH;
+        return null;
         //return new SoundEvent(new ResourceLocation(MoleMod.MODID, "mole_death_sound"));
     }
 
-    @Nullable
+    @Override
     protected ResourceLocation getLootTable() {
-        return ENTITIES_MOLE;
+        return null;
     }
 }

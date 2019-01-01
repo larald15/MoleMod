@@ -12,7 +12,6 @@ import static com.mod.molemod.init.ItemInit.*;
 public class CraftingRecipesInit {
 
     public void initShapedRecipes() {
-        //Gun crafting
         GameRegistry.addShapedRecipe(new ResourceLocation("Lee-Enfield"), null, new ItemStack(LEEENFIELD),
                 "GGG", "XYZ", "GGG", 'X', LEEENFIELD_BARREL, 'Y', LEEENFIELD_RECEIVER, 'Z', LEEENFIELD_STOCK, 'G', Items.GUNPOWDER);
         GameRegistry.addShapedRecipe(new ResourceLocation("Lee-Enfield Barrel"), null, new ItemStack(LEEENFIELD_BARREL),
@@ -24,7 +23,8 @@ public class CraftingRecipesInit {
 
         GameRegistry.addShapedRecipe(new ResourceLocation("Hammer"), null, new ItemStack(HAMMER),
                 "XXX", "XYX", " Z ", 'X', Blocks.LOG, 'Y', Items.STICK, 'Z', Blocks.IRON_BLOCK);
-
+        GameRegistry.addShapedRecipe(new ResourceLocation("Rolling Pin"), null, new ItemStack(ROLLING_PIN),
+                " OS", "OOO", "SO ", 'O', Blocks.LOG, 'S', Items.STICK);
         GameRegistry.addShapedRecipe(new ResourceLocation("Refined Leather"), null, new ItemStack(LEATHER_REFINED),
                 "   ", "X X", " X ", 'X', LEATHER_SCRAP);
         GameRegistry.addShapedRecipe(new ResourceLocation("Bullet"), null, new ItemStack(BULLET, 2),
@@ -32,8 +32,8 @@ public class CraftingRecipesInit {
     }
 
     public void initShapelessRecipes() {
-        GameRegistry.addShapelessRecipe(new ResourceLocation("Scrapped Leather"), null,
-                new ItemStack(LEATHER_SCRAP, 2), Ingredient.fromStacks(new ItemStack(LEATHER_REFINED)));
+        GameRegistry.addShapelessRecipe(new ResourceLocation("Leather"), null,
+                new ItemStack(Items.LEATHER, 6), Ingredient.fromStacks(new ItemStack(LEATHER_REFINED)));
     }
 
 

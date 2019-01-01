@@ -35,9 +35,9 @@ public class ItemCustomRollingPin extends Item {
 
         if (target.getName().equals("Mole")) {
             if(playerIn.isCreative()) {
-                target.setHealth(0f);
+                target.onKillCommand();
             } else {
-                target.setHealth(0f);
+                target.onKillCommand();
                 stack.setCount(stack.getCount() - 1);
             }
         }

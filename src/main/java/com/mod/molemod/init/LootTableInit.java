@@ -7,6 +7,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 public class LootTableInit {
 
     public static final ResourceLocation ENTITIES_MOLE = LootTableList.register(
-            new ResourceLocation(MoleMod.MODID, "mole"));
+            new ResourceLocation(MoleMod.MODID + ":loot_tables/mole.json"));
 
 }
